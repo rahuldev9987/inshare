@@ -57,7 +57,7 @@ router.post('/send', async (req, res) => {
             text:`${emailFrom} Shared a file with you`,
             html:require('../services/emailTemplate')({
                 emailFrom:emailFrom,
-                downloadLink:`${'http://localhost:3000'}/files/${file.uuid}`,
+                downloadLink:`${'https://node-js-inshare.herokuapp.com/'}/files/${file.uuid}`,
                 expires:'24 hours'
             })
         });
