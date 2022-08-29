@@ -16,6 +16,9 @@ app.use(express.json())
 app.use('/api/files',require("./roots/files"))
 app.use('/files',require('./roots/show'))
 app.use('/files/download',require('./roots/download'))
+app.get('/',(req,res)=>{
+    res.send("hello")
+})
 
 app.listen(PORT, () => {
     console.log(`listen on port:${PORT}`)
