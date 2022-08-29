@@ -1,7 +1,7 @@
 const dotenv=require('dotenv')
 const mongoose = require('mongoose')
 dotenv.config()
-const use ="mongodb+srv://inShare:wp1ksHDbDNoGBplT@cluster0.ce29i.mongodb.net/inShare?retryWrites=true&w=majority"
+const use =process.env.MONGO_CONNECTION_URL
 function connectDB(){
     mongoose.connect(use)
     const connection=mongoose.connection

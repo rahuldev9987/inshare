@@ -28,7 +28,8 @@ router.post('/', upload, async (req, res) => {
         });
         const response = await file.save();
         console.log(response)
-        res.json({ file: `https://node-js-inshare.herokuapp.com/files/${response.uuid}` });
+        console.log()
+        res.json({ file: `${process.env.APP_BASE_URL+"/files/"+response.uuid}`});
     } catch (error) {
         console.log(error)
     }
@@ -57,7 +58,7 @@ router.post('/send', async (req, res) => {
             text:`${emailFrom} Shared a file with you`,
             html:require('../services/emailTemplate')({
                 emailFrom:emailFrom,
-                downloadLink:`${'https://node-js-inshare.herokuapp.com/'}/files/${file.uuid}`,
+                downloadLink:`${process.env.APP_BASE_URL}'}/files/${file.uuid}`,
                 expires:'24 hours'
             })
         });
