@@ -28,7 +28,7 @@ router.post('/', upload, async (req, res) => {
         });
         const response = await file.save();
         console.log(response)
-        res.json({ file: `http://localhost:3000/files/${response.uuid}` });
+        res.json({ file: `https://node-js-inshare.herokuapp.com/files/${response.uuid}` });
     } catch (error) {
         console.log(error)
     }
